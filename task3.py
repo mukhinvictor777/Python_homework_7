@@ -7,3 +7,33 @@ income (доход). Последний атрибут должен быть з�
 (создать экземпляры класса Position, передать данные, проверить значения атрибутов, вызвать методы экземпляров).
 """
 
+
+class Worker:
+    def __init__(self, name, surname, position):
+        self.name = name
+        self.surname = surname
+        self.position = position
+
+
+class Position(Worker):
+
+    def __init__(self, worker, income):
+        self.__income = income
+        self.name = worker.name
+        self.surname = worker.surname
+        self.position = worker.position
+
+    def get_full_name(self):
+        full_name = self.name + " " + self.surname
+#        print(f'\nПолное имя сотрудника: {full_name}')
+        return full_name
+
+    def get_total_income(self):
+        total_income = self.__income['wage'] + self.__income['bonus']
+        print(f'\nЗаработанная плата сотрудника {self.get_full_name()} с учетом премии составляет {total_income} руб.')
+
+
+worker_a = Worker('Viktor', 'Mukhin', 'intern')
+position_a = Position(worker_a, {'wage': 50000, 'bonus': 20000})
+print(f'\nПолное имя сотрудника: {position_a.get_full_name()}')
+position_a.get_total_income()
