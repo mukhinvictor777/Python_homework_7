@@ -25,7 +25,6 @@ class Position(Worker):
 
     def get_full_name(self):
         full_name = self.name + " " + self.surname
-#        print(f'\nПолное имя сотрудника: {full_name}')
         return full_name
 
     def get_total_income(self):
